@@ -3,10 +3,7 @@ import {
   X, 
   Flame, 
   Send, 
-  CheckCircle2, 
-  MapPin, 
-  Radio, 
-  ShieldCheck 
+  CheckCircle2 
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 

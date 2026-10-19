@@ -8,7 +8,6 @@ import {
   Menu, 
   X, 
   ExternalLink,
-  Award,
   Lock,
   ChevronRight
 } from 'lucide-react';

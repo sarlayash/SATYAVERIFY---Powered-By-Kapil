@@ -7,18 +7,14 @@ import {
   ShieldAlert, 
   HelpCircle, 
   History, 
-  CheckCircle, 
   Flag, 
-  ChevronDown, 
-  ChevronUp,
-  FileCheck2,
-  AlertCircle,
-  Clock
+  FileCheck2, 
+  AlertCircle, 
+  Clock 
 } from 'lucide-react';
 
 export default function EvidenceDesk({ claim, onOpenCorrection }) {
   const [activeTab, setActiveTab] = useState('sources'); // 'sources', 'conflicts', 'history', 'unresolved'
-  const [showAllQuotes, setShowAllQuotes] = useState(false);
 
   if (!claim || !claim.evidenceDesk) return null;
   const desk = claim.evidenceDesk;

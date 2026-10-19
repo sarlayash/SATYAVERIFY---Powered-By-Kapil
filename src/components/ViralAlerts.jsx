@@ -1,21 +1,14 @@
 import React, { useState } from 'react';
 import { 
-  AlertCircle, 
   Flame, 
   Radio, 
-  ArrowUpRight, 
-  ShieldAlert, 
-  Send, 
-  MessageSquare, 
-  Check, 
   Clock, 
-  Filter,
-  Sparkles
+  ArrowUpRight 
 } from 'lucide-react';
-import { VIRAL_ALERTS, MOCK_CLAIMS } from '../data/mockClaims';
+import { VIRAL_ALERTS } from '../data/mockClaims';
 
-export default function ViralAlerts({ onSelectClaimById, onOpenReportViral }) {
-  const [alerts, setAlerts] = useState(VIRAL_ALERTS);
+export default function ViralAlerts({ alerts: propAlerts, onSelectClaimById, onOpenReportViral }) {
+  const alerts = propAlerts || VIRAL_ALERTS;
   const [upvoted, setUpvoted] = useState({});
 
   const handleUpvote = (id) => {

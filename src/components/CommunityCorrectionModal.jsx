@@ -6,8 +6,7 @@ import {
   CheckCircle2, 
   Link2, 
   FileText, 
-  ShieldCheck, 
-  AlertCircle
+  ShieldCheck 
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 
@@ -17,10 +16,14 @@ export default function CommunityCorrectionModal({ claim, onClose, onSubmitCorre
   const [explanation, setExplanation] = useState('');
   const [submitterName, setSubmitterName] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [auditId, setAuditId] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!explanation.trim()) return;
+
+    const generatedId = `CORR-${Date.now().toString().slice(-6)}`;
+    setAuditId(generatedId);
 
     if (onSubmitCorrection) {
       onSubmitCorrection({
@@ -76,7 +79,7 @@ export default function CommunityCorrectionModal({ claim, onClose, onSubmitCorre
               </p>
             </div>
             <div className="p-3 rounded-xl bg-slate-900 border border-slate-800 text-[11px] font-mono text-slate-400">
-              Audit ID: CORR-{Date.now().toString().slice(-6)} • Tracked in Public Ledger
+              Audit ID: {auditId || 'CORR-ACTIVE'} • Tracked in Public Ledger
             </div>
             <button
               onClick={onClose}

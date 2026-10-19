@@ -10,7 +10,7 @@ import ReviewerPortalModal from './components/ReviewerPortalModal';
 import ReportViralModal from './components/ReportViralModal';
 import Footer from './components/Footer';
 import { MOCK_CLAIMS, VIRAL_ALERTS } from './data/mockClaims';
-import { ShieldCheck, Award } from 'lucide-react';
+import { ShieldCheck } from 'lucide-react';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('checker'); // 'checker', 'library', 'alerts', 'literacy'
@@ -143,7 +143,12 @@ export default function App() {
         {activeTab === 'literacy' && (
           <DigitalLiteracyGuide
             onJumpToChecker={(keyword) => {
-              const matched = claims.find(c => c.claimText.toLowerCase().includes(keyword.toLowerCase()));
+              const lower = keyword.toLowerCase();
+              const matched = claims.find(c => 
+                c.claimText.toLowerCase().includes(lower) || 
+                c.canonicalSubject.toLowerCase().includes(lower) ||
+                (c.tags && c.tags.some(t => t.toLowerCase().includes(lower)))
+              );
               if (matched) {
                 handleSelectClaim(matched);
               } else {

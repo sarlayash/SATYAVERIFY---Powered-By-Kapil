@@ -2,23 +2,77 @@ import React, { useState } from 'react';
 import { 
   Sparkles, 
   ShieldCheck, 
-  CheckCircle2, 
   AlertOctagon, 
-  HelpCircle, 
   Compass, 
-  BookOpen, 
-  Send, 
-  Lightbulb,
-  FileCheck,
-  Check,
-  ChevronRight,
-  UserCheck
+  Lightbulb, 
+  ChevronRight
 } from 'lucide-react';
 import { PLATFORM_PRINCIPLES, DIGITAL_LITERACY_CHECKLIST } from '../data/literacyRules';
 
 export default function DigitalLiteracyGuide({ onJumpToChecker }) {
   const [activeChecklist, setActiveChecklist] = useState('step-1');
   const [quizAnswer, setQuizAnswer] = useState(null);
+  const [activeCaseStudy, setActiveCaseStudy] = useState('tiger'); // 'tiger', 'dipke', 'baba'
+
+  const caseStudies = {
+    tiger: {
+      id: 'tiger',
+      caseNum: 'CASE STUDY 01: ACTIVE CRIME INVESTIGATION',
+      title: 'The Tiger Shroff Juhu Shooting: ICU Rumors vs Crime Branch Facts',
+      claimId: 'sv-2026-120',
+      badge: 'HIGH-VELOCITY CELEBRITY CLAIM',
+      toxicActions: [
+        'Circulate sensationalized claims that the actor was "shot in the chest and declared dead in ICU".',
+        'Cynically brand live-fire weapon attacks as a "cheap promotional PR stunt for his next action film".',
+        'Amplify anonymous social media posts attributing gang motivations without police corroboration.'
+      ],
+      satyaActions: [
+        'Cross-examine Mumbai Police Crime Branch and Joint Commissioner of Police official press briefings.',
+        'Verify Kokilaben Dhirubhai Ambani Hospital clinical bulletins (actor safe with minor glass abrasions).',
+        'Document interstate law enforcement actions (all 3 motorcycle-borne shooters arrested in Kota, Rajasthan).',
+        'Distinguish genuine criminal danger from viral exaggeration without trivializing victims.'
+      ],
+      coreRule: 'During active shooting incidents, branding real gunfire a "movie stunt" or declaring subjects dead in ICU before medical bulletins endangers civic calm. Rely strictly on verified police press briefings.'
+    },
+    dipke: {
+      id: 'dipke',
+      caseNum: 'CASE STUDY 02: POLITICAL MISINFORMATION & AI SCAMS',
+      title: 'Abhijeet Dipke & CJP: Forged Death Clipping & Deepfake QR Scams',
+      claimId: 'sv-2026-118',
+      badge: 'SYNTHETIC MEDIA & FORGED CLIPPINGS',
+      toxicActions: [
+        'Share manipulated newspaper clippings announcing an activist or leader\'s death to spark unrest.',
+        'Trust blue-tick verified imposter accounts soliciting funds without checking payment destination.',
+        'Accuse individuals of fraud without testing whether video appeals are AI-synthesized deepfakes.'
+      ],
+      satyaActions: [
+        'Directly verify with Delhi Police Cyber Cell bulletins and official statutory clarifications.',
+        'Perform spectral voice and facial landmark analysis through certified fact-check desks (BOOM, WebQoof).',
+        'Check authentic communications channels of the Cockroach Janta Party to confirm no QR donation campaigns exist.',
+        'Expose cyber fraud networks weaponizing synthetic media during high-tension civic protests.'
+      ],
+      coreRule: 'Disinformation actors exploit emotionally charged political movements using AI voice cloning and forged newspaper mastheads. Always verify with statutory police cyber bulletins.'
+    },
+    baba: {
+      id: 'baba',
+      caseNum: 'CASE STUDY 03: THE VIRAL SENSATIONALISM BENCHMARK',
+      title: 'The “IIT Baba is Dead” Rumor Anatomy',
+      claimId: 'sv-2026-081',
+      badge: 'CLICKBAIT MONETIZATION',
+      toxicActions: [
+        'Turn social post volume into a hasty verdict without calling or confirming with the subject.',
+        'Brand people frauds or declare demise to harvest digital engagement and ad revenue.',
+        'Allow anonymous crowds to cast guilt or innocence based on cropped video thumbnails.'
+      ],
+      satyaActions: [
+        'Identifies the living individual and checks physical wellbeing with district authorities.',
+        'Locates the earliest clickbait YouTube video that harvested condolences for ad revenue.',
+        'Publishes verified ashram live video broadcasts and district magistrate signed notices.',
+        'Explains precisely what evidence proves: subject is alive; post is false.'
+      ],
+      coreRule: 'A rumor does not transform into a verdict merely because thousands of well-meaning citizens have forwarded it. Every verdict must stand upon documented records, verified dates, and transparent accountability.'
+    }
+  };
 
   const practiceScenarios = [
     {
@@ -32,6 +86,8 @@ export default function DigitalLiteracyGuide({ onJumpToChecker }) {
       ]
     }
   ];
+
+  const currentStudy = caseStudies[activeCaseStudy];
 
   return (
     <div className="space-y-12 max-w-5xl mx-auto">
@@ -55,36 +111,80 @@ export default function DigitalLiteracyGuide({ onJumpToChecker }) {
         </p>
       </div>
 
-      {/* Exemplar Case Study: The "IIT Baba" Principle */}
-      <div className="gold-subtle-box rounded-3xl p-6 sm:p-8 border-2 border-[#D4AF37]/40 relative overflow-hidden">
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 pb-4 border-b border-slate-800">
+      {/* Case Study Switcher & Explorer */}
+      <div className="gold-subtle-box rounded-3xl p-6 sm:p-8 border-2 border-[#D4AF37]/40 relative overflow-hidden space-y-6">
+        
+        {/* Selector Tabs */}
+        <div className="flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-slate-800">
           <div>
             <span className="text-[10px] font-mono tracking-widest uppercase bg-[#D4AF37]/15 text-[#F5D061] px-2.5 py-0.5 rounded border border-[#D4AF37]/30">
-              CASE STUDY 01: THE GOLDEN BENCHMARK
+              {currentStudy.caseNum}
             </span>
             <h3 className="font-cinzel text-xl sm:text-2xl font-bold text-white mt-1">
-              The “IIT Baba is Dead” Rumor Anatomy
+              {currentStudy.title}
             </h3>
           </div>
+
+          <div className="flex items-center gap-1.5 bg-[#0A0C14] p-1 rounded-xl border border-slate-800 text-xs">
+            <button
+              onClick={() => setActiveCaseStudy('tiger')}
+              className={`px-3 py-1.5 rounded-lg font-medium transition-all ${
+                activeCaseStudy === 'tiger'
+                  ? 'bg-[#1C2030] text-[#F5D061] border border-[#D4AF37]/30 shadow'
+                  : 'text-slate-400 hover:text-white'
+              }`}
+            >
+              Tiger Shroff Attack
+            </button>
+            <button
+              onClick={() => setActiveCaseStudy('dipke')}
+              className={`px-3 py-1.5 rounded-lg font-medium transition-all ${
+                activeCaseStudy === 'dipke'
+                  ? 'bg-[#1C2030] text-[#F5D061] border border-[#D4AF37]/30 shadow'
+                  : 'text-slate-400 hover:text-white'
+              }`}
+            >
+              CJP & Abhijeet Dipke
+            </button>
+            <button
+              onClick={() => setActiveCaseStudy('baba')}
+              className={`px-3 py-1.5 rounded-lg font-medium transition-all ${
+                activeCaseStudy === 'baba'
+                  ? 'bg-[#1C2030] text-[#F5D061] border border-[#D4AF37]/30 shadow'
+                  : 'text-slate-400 hover:text-white'
+              }`}
+            >
+              IIT Baba
+            </button>
+          </div>
+        </div>
+
+        {/* Action Button to Jump to Fact Check */}
+        <div className="flex items-center justify-between">
+          <span className="text-xs px-2.5 py-1 rounded-md bg-amber-950/60 text-amber-400 border border-amber-800/40 font-mono text-[11px]">
+            {currentStudy.badge}
+          </span>
+
           <button
-            onClick={() => onJumpToChecker('baba')}
-            className="px-4 py-2 rounded-xl bg-slate-900 hover:bg-[#1A1F30] border border-[#D4AF37]/40 text-[#F5D061] text-xs font-semibold flex items-center gap-1.5 transition-all"
+            onClick={() => onJumpToChecker(activeCaseStudy === 'tiger' ? 'tiger' : activeCaseStudy === 'dipke' ? 'dipke' : 'baba')}
+            className="px-4 py-2 rounded-xl bg-slate-900 hover:bg-[#1A1F30] border border-[#D4AF37]/40 text-[#F5D061] text-xs font-semibold flex items-center gap-1.5 transition-all cursor-pointer"
           >
             <span>Inspect Full Evidence Audit</span>
             <ChevronRight className="w-4 h-4" />
           </button>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+        {/* Comparison Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="p-4 rounded-2xl bg-rose-950/20 border border-rose-900/40 space-y-2">
             <div className="flex items-center gap-2 text-rose-400 font-bold text-xs uppercase tracking-wide">
               <AlertOctagon className="w-4 h-4" />
               <span>What Toxic Platforms Do</span>
             </div>
-            <ul className="text-xs text-slate-300 space-y-1.5 list-disc list-inside">
-              <li>Turn social post volume into a hasty verdict without calling the subject.</li>
-              <li>Brand people frauds or criminals to generate engagement and fury.</li>
-              <li>Allow anonymous crowds to cast guilt or innocence based on cropped clips.</li>
+            <ul className="text-xs text-slate-300 space-y-2 list-disc list-inside">
+              {currentStudy.toxicActions.map((action, i) => (
+                <li key={i}>{action}</li>
+              ))}
             </ul>
           </div>
 
@@ -93,17 +193,16 @@ export default function DigitalLiteracyGuide({ onJumpToChecker }) {
               <ShieldCheck className="w-4 h-4" />
               <span>What SATYAVERIFY Does</span>
             </div>
-            <ul className="text-xs text-slate-300 space-y-1.5 list-disc list-inside">
-              <li>Identifies the living individual and checks physical wellbeing with authorities.</li>
-              <li>Locates the earliest clickbait YouTube video that harvested condolences.</li>
-              <li>Publishes verified ashram video and district administration notices.</li>
-              <li>Explains precisely what evidence proves: subject is alive; post is false.</li>
+            <ul className="text-xs text-slate-300 space-y-2 list-disc list-inside">
+              {currentStudy.satyaActions.map((action, i) => (
+                <li key={i}>{action}</li>
+              ))}
             </ul>
           </div>
         </div>
 
-        <div className="mt-6 p-4 rounded-2xl bg-[#090A0F] border border-slate-800 text-xs text-slate-300 leading-relaxed font-sans">
-          <strong className="text-[#F5D061]">Core Rule:</strong> A rumor does not transform into a verdict merely because thousands of well-meaning citizens have forwarded it. Every verdict must stand upon documented records, verified dates, and transparent accountability.
+        <div className="p-4 rounded-2xl bg-[#090A0F] border border-slate-800 text-xs text-slate-300 leading-relaxed font-sans">
+          <strong className="text-[#F5D061]">Core Rule:</strong> {currentStudy.coreRule}
         </div>
       </div>
 

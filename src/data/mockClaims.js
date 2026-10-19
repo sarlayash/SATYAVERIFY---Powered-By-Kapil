@@ -61,6 +61,194 @@ export const VERDICTS = {
 
 export const MOCK_CLAIMS = [
   {
+    id: 'sv-2026-120',
+    claimText: 'Viral social media posts claim actor Tiger Shroff was "shot dead" or "critically injured in the ICU" after a drive-by shooting in Juhu, with conspiracy theories calling it a promotional movie stunt.',
+    canonicalSubject: 'Tiger Shroff Juhu Drive-by Shooting & ICU / PR Stunt Claims',
+    targetPerson: 'Tiger Shroff (Actor)',
+    category: 'Public Figures',
+    platformOrigin: 'WhatsApp Forwards, YouTube Clickbait & X (Twitter)',
+    firstObserved: '2026-10-18T19:30:00Z',
+    verifiedAt: '2026-10-19T10:00:00Z',
+    verdict: 'MISLEADING',
+    confidenceScore: 99,
+    investigationSummary: 'While a serious, genuine drive-by shooting did occur on the evening of Sunday, October 18, 2026 near Pushpa Narsee Park in Juhu targeting the vehicle carrying Tiger Shroff as he left a football match, viral claims that the actor is "critically injured in the ICU", "dead", or that the incident was a "staged movie publicity stunt" are completely misleading and false. Tiger Shroff escaped direct bullet hits, sustaining only minor glass abrasions. Tragically, his driver (bullet wound to hand) and a passerby were injured. Mumbai Police Crime Branch registered an FIR for Attempted Murder (BNS) and the Arms Act, and tracked down and arrested all three motorcycle-borne shooters in Kota, Rajasthan while attempting to flee. Both Mumbai Police and hospital bulletins confirm the actor is medically stable and out of danger.',
+    evidenceDesk: {
+      originalSource: 'Sensational YouTube live streams with siren sound effects and fake hospital ward graphics, combined with cynical social media posts dismissing real gun violence as a marketing gimmick.',
+      officialClarification: 'Joint Commissioner of Police (Crime), Mumbai Police, confirmed live ammunition was fired, 3 shooters were arrested in Kota (Rajasthan), and Tiger Shroff is medically safe.',
+      sources: [
+        {
+          name: 'Mumbai Police Crime Branch Official Press Conference',
+          date: '2026-10-19',
+          type: 'Law Enforcement Briefing',
+          trustRating: 'A+ (Primary Law Enforcement)',
+          url: 'https://mumbaipolice.gov.in/press/juhu-firing-arrests',
+          quote: 'We have arrested all three shooters from Kota, Rajasthan following an interstate chase. Real firearms were discharged at the vehicle. The actor escaped bullet injury, while his driver and a passerby are receiving medical treatment. This was a grave criminal act, not any promotional activity.'
+        },
+        {
+          name: 'Kokilaben Dhirubhai Ambani Hospital Bulletin',
+          date: '2026-10-19',
+          type: 'Medical Bulletin',
+          trustRating: 'A+ (Direct Hospital Authority)',
+          url: 'https://kokilabenhospital.com/bulletin/actor-outpatient-clearance',
+          quote: 'Patient was examined for minor superficial abrasions caused by shattered glass fragments. Vital signs normal, no penetrating trauma. Discharged under security protocol.'
+        },
+        {
+          name: 'India Today Crime Bureau',
+          date: '2026-10-19',
+          type: 'Accredited Journalism',
+          trustRating: 'A (National News Desk)',
+          url: 'https://indiatoday.in/movies/bollywood/story/tiger-shroff-firing-juhu-mumbai-police-arrests',
+          quote: 'Tiger Shroff firing incident: Mumbai Crime Branch tracks suspects across state lines; actor safe, police probing potential extortion angles.'
+        },
+        {
+          name: 'The Quint Fact Check Desk',
+          date: '2026-10-19',
+          type: 'Independent Fact Check',
+          trustRating: 'A (IFCN Certified)',
+          url: 'https://thequint.com/news/india/fact-check-tiger-shroff-shooting-rumours',
+          quote: 'Fact Check: Debunking viral ICU death rumors and PR stunt theories surrounding the Juhu gunfire targeting Tiger Shroff.'
+        }
+      ],
+      conflictingEvidence: 'Online posts attributing claims to Lawrence Bishnoi gang associates are under active cyber and intelligence investigation; no judicial motive has yet been finalized.',
+      unresolvedQuestions: 'Mastermind coordination, weapon supply chain, and exact extortion motive remain under active police probe.'
+    },
+    revisionHistory: [
+      {
+        version: '1.0',
+        timestamp: '2026-10-18T23:00:00Z',
+        editor: 'Kapil & Crime Desk',
+        note: 'Breaking fact-check published confirming actor is alive following viral hospital admission claims.'
+      },
+      {
+        version: '1.1',
+        timestamp: '2026-10-19T10:00:00Z',
+        editor: 'SarlaYash Editorial Board',
+        note: 'Updated with Kota arrest details of 3 shooters and Crime Branch formal briefing dismissing PR stunt rumors.'
+      }
+    ],
+    responsibleTakeaway: 'During active shooting investigations, spreading uncorroborated ICU death claims or branding real gun violence as a "movie stunt" endangers public safety and trivializes grave crimes. Rely strictly on verified police press briefings.',
+    shareCount: 76500,
+    tags: ['Tiger Shroff', 'Juhu Attack', 'Crime Branch', 'Mumbai Police', 'Drive-by Shooting', 'Bollywood', 'Public Figures']
+  },
+  {
+    id: 'sv-2026-118',
+    claimText: 'Viral image mimicking a front-page Hindi/English daily newspaper clipping claims that Cockroach Janta Party (CJP) founder Abhijeet Dipke passed away following clashes during Delhi protests.',
+    canonicalSubject: 'Abhijeet Dipke CJP Protests Death Hoax Clipping',
+    targetPerson: 'Abhijeet Dipke (Founder, Cockroach Janta Party)',
+    category: 'Public Figures',
+    platformOrigin: 'WhatsApp Forwards, X (Twitter) & Telegram Channels',
+    firstObserved: '2026-10-15T12:00:00Z',
+    verifiedAt: '2026-10-16T14:30:00Z',
+    verdict: 'FALSE',
+    confidenceScore: 99,
+    investigationSummary: 'The viral graphic resembling a legitimate newspaper report announcing the death of Cockroach Janta Party (CJP) founder Abhijeet Dipke is entirely fabricated. Delhi Police issued an official clarification and cyber advisory confirming that Dipke is alive, physically safe, and in good health, cautioning users against spreading forged clippings intended to trigger public panic. Dipke subsequently conducted live video addresses on his verified social handles and spoke with national media.',
+    evidenceDesk: {
+      originalSource: 'A digitally manipulated graphic imitating the masthead layout of a leading national daily with warped typography, circulated anonymously on Telegram channels before jumping to X.',
+      officialClarification: 'Delhi Police Cyber Cell and Central District police issued a formal public debunking stating Dipke is safe and active, with an FIR lodged for forgery and malicious dissemination of false information.',
+      sources: [
+        {
+          name: 'Delhi Police Cyber Cell Official Advisory',
+          date: '2026-10-16',
+          type: 'Law Enforcement Clarification',
+          trustRating: 'A+ (Primary Law Enforcement)',
+          url: 'https://delhipolice.gov.in/cybercell/advisory-fake-clippings',
+          quote: 'Social media reports circulating a forged newspaper clipping regarding the alleged demise of Abhijeet Dipke are false. The person is safe and well. Citizens are requested not to share fake screenshots.'
+        },
+        {
+          name: 'Times of India / IndiaTimes Fact Check',
+          date: '2026-10-16',
+          type: 'Accredited Fact Check',
+          trustRating: 'A (National News Desk)',
+          url: 'https://timesofindia.indiatimes.com/fact-check/cjp-abhijeet-dipke-death-clipping-debunk',
+          quote: 'Fact Check: Fabricated newspaper clipping falsely claims Cockroach Janta Party convenor Abhijeet Dipke died in Delhi.'
+        },
+        {
+          name: 'BOOM Fact Check Desk',
+          date: '2026-10-16',
+          type: 'Independent Fact Check',
+          trustRating: 'A (IFCN Certified)',
+          url: 'https://boomlive.in/fact-check/abhijeet-dipke-cjp-fake-newspaper-death-hoax',
+          quote: 'Visual forensic examination of the clipping reveals misaligned fonts, absent bylines, and a counterfeit volume/issue number.'
+        }
+      ],
+      conflictingEvidence: 'None from accredited sources. Only anonymous aggregator handles and parody accounts reposted the fabricated clipping.',
+      unresolvedQuestions: 'Cyber Cell tracing the offshore VPN endpoints utilized to upload the initial edited masthead image.'
+    },
+    revisionHistory: [
+      {
+        version: '1.0',
+        timestamp: '2026-10-16T10:00:00Z',
+        editor: 'Kapil & Fact Check Desk',
+        note: 'Initial emergency debunking published following Delhi Police statement.'
+      },
+      {
+        version: '1.1',
+        timestamp: '2026-10-16T14:30:00Z',
+        editor: 'SarlaYash Editorial Board',
+        note: 'Added visual typography forensic analysis from independent fact-check desks.'
+      }
+    ],
+    responsibleTakeaway: 'Newspaper clippings with blurred headers and missing datelines are a common tool of disinformation. Before forwarding sensational death reports, verify with police bulletins or direct newsroom archives.',
+    shareCount: 28400,
+    tags: ['Abhijit Dipke', 'CJP', 'Cockroach Janta Party', 'Death Hoax', 'Delhi Police', 'Public Figures']
+  },
+  {
+    id: 'sv-2026-119',
+    claimText: 'Viral videos across Instagram and Facebook featuring Abhijeet Dipke ask citizens to scan a phone QR code to send donations to the Cockroach Janta Party (CJP) legal defense fund.',
+    canonicalSubject: 'CJP & Abhijeet Dipke Fake QR Code Donation Deepfakes',
+    targetPerson: 'Abhijeet Dipke & CJP Movement',
+    category: 'Social Media Scams',
+    platformOrigin: 'Instagram Reels, Facebook Ads & WhatsApp Links',
+    firstObserved: '2026-10-16T08:00:00Z',
+    verifiedAt: '2026-10-17T11:00:00Z',
+    verdict: 'FALSE',
+    confidenceScore: 98,
+    investigationSummary: 'The circulating videos soliciting funds via QR codes are AI-generated deepfakes created by imposter accounts to harvest financial contributions from unsuspecting supporters. Independent audio-visual forensic analysis conducted by The Quint’s WebQoof and BOOM confirmed the lip-sync and voice track were synthesized using AI voice-cloning tools. The authentic Cockroach Janta Party movement has issued warnings that it does not solicit funds via QR codes or unverified third-party pages.',
+    evidenceDesk: {
+      originalSource: 'Blue-tick verified imposter page "Abhijeet.dipke.update" and multiple newly created Facebook advertising handles posting synthetic video snippets with payment UPI QR overlays.',
+      officialClarification: 'Abhijeet Dipke publicly clarified via his verified accounts that he does not operate a public Facebook page and has never authorized any QR code donation drives.',
+      sources: [
+        {
+          name: 'The Quint (WebQoof) Deepfake Forensic Desk',
+          date: '2026-10-17',
+          type: 'Deepfake Forensics',
+          trustRating: 'A (IFCN Certified)',
+          url: 'https://thequint.com/news/webqoof/cjp-abhijeet-dipke-ai-donation-scam-fact-check',
+          quote: 'Spectral voice analysis and facial landmark drift confirm the donation appeal video was synthetically generated using off-the-shelf generative AI voice models.'
+        },
+        {
+          name: 'BOOM Live Fact Check',
+          date: '2026-10-17',
+          type: 'Fact Check Desk',
+          trustRating: 'A (IFCN Certified)',
+          url: 'https://boomlive.in/fact-check/cjp-donation-scam-fake-facebook-page',
+          quote: 'Imposter pages with compromised verification badges were running paid campaigns targeting Gen-Z youth with fake UPI QR codes.'
+        },
+        {
+          name: 'CyberPeace Foundation Alert',
+          date: '2026-10-17',
+          type: 'Cyber Advisory',
+          trustRating: 'A+ (Cyber Security Agency)',
+          url: 'https://cyberpeace.org/alerts/ai-qr-code-political-scam',
+          quote: 'Fraud advisory on coordinated AI financial scam exploiting viral political movements.'
+        }
+      ],
+      conflictingEvidence: 'None. The UPI accounts linked in the QR codes resolved to private merchant entities unrelated to any registered trust or civic body.',
+      unresolvedQuestions: 'Takedown request pending with Meta regarding fraudulent advertising accounts using stolen verified badges.'
+    },
+    revisionHistory: [
+      {
+        version: '1.0',
+        timestamp: '2026-10-17T11:00:00Z',
+        editor: 'Kapil & Cyber Desk',
+        note: 'Comprehensive cyber fraud advisory published with deepfake forensic indicators.'
+      }
+    ],
+    responsibleTakeaway: 'Never scan payment QR codes embedded in social media video appeals without independently verifying the beneficiary registered account with official banking portals.',
+    shareCount: 19800,
+    tags: ['CJP', 'Abhijit Dipke', 'Deepfake', 'AI Scam', 'QR Code Fraud', 'Cyber Safety']
+  },
+  {
     id: 'sv-2026-081',
     claimText: 'Viral social media posts claim that "IIT Baba" (spiritual ascetic with an engineering degree) has passed away in his ashram.',
     canonicalSubject: 'IIT Baba Life Status Rumor',
@@ -414,13 +602,46 @@ export const MOCK_CLAIMS = [
 
 export const VIRAL_ALERTS = [
   {
+    id: 'va-tiger-shroff',
+    headline: 'Tiger Shroff Juhu Drive-by Shooting: False "Critically Shot in ICU / Movie Stunt" Claims',
+    reachIndex: 'High Velocity Breaking Alert (>100k shares)',
+    status: 'ACTIVE CRIME PROBE & DEBUNK',
+    verdictKey: 'MISLEADING',
+    claimId: 'sv-2026-120',
+    timestamp: 'Just now (Breaking)',
+    alertMessage: 'Genuine shooting occurred near Juhu park; however, actor escaped bullet wounds (minor glass cuts). 3 shooters arrested in Kota, Rajasthan. Police deny PR stunt rumors.',
+    badgeColor: 'border-amber-500/40 text-amber-400 bg-amber-950/40'
+  },
+  {
+    id: 'va-cjp-dipke',
+    headline: 'Forged Newspaper Clipping Claiming CJP Founder Abhijeet Dipke Died in Protests',
+    reachIndex: 'Severe Political Viral Rumor',
+    status: 'DEBUNKED BY POLICE',
+    verdictKey: 'FALSE',
+    claimId: 'sv-2026-118',
+    timestamp: '3 hours ago',
+    alertMessage: 'Delhi Police officially confirmed newspaper clipping is counterfeit. Dipke is safe and healthy; FIR registered against malicious creators.',
+    badgeColor: 'border-rose-500/40 text-rose-400 bg-rose-950/40'
+  },
+  {
+    id: 'va-cjp-qr',
+    headline: 'AI Deepfake Videos Soliciting Cockroach Janta Party (CJP) UPI Donations via QR',
+    reachIndex: 'Active Cyber Financial Scam',
+    status: 'AI FORENSICS FLAGGED',
+    verdictKey: 'FALSE',
+    claimId: 'sv-2026-119',
+    timestamp: '6 hours ago',
+    alertMessage: 'Synthetic voice-cloned video impersonating Abhijeet Dipke asking for QR donations. Authentic CJP does not solicit funds via QR codes.',
+    badgeColor: 'border-rose-500/40 text-rose-400 bg-rose-950/40'
+  },
+  {
     id: 'va-01',
     headline: 'IIT Baba demise rumors flooding Uttar Pradesh WhatsApp groups',
     reachIndex: 'High Virality (Over 50k forwards in 24h)',
     status: 'DEBUNKED',
     verdictKey: 'FALSE',
     claimId: 'sv-2026-081',
-    timestamp: '2 hours ago',
+    timestamp: '1 day ago',
     alertMessage: 'Official video and local administration confirm subject is alive and well. Slander and death hoaxes circulate to monetize ads.',
     badgeColor: 'border-rose-500/40 text-rose-400 bg-rose-950/40'
   },
@@ -431,20 +652,9 @@ export const VIRAL_ALERTS = [
     status: 'ACTIVE INVESTIGATION',
     verdictKey: 'FALSE',
     claimId: 'sv-2026-092',
-    timestamp: '35 minutes ago',
+    timestamp: '2 days ago',
     alertMessage: 'Multiple users reporting SMS with non-gov shortlinks asking for bank account linkage. Do not click non-gov domains.',
     badgeColor: 'border-amber-500/40 text-amber-400 bg-amber-950/40'
-  },
-  {
-    id: 'va-03',
-    headline: 'AI Emergency Triage 40% speed claims reshared by health tech influencers',
-    reachIndex: 'Moderate (LinkedIn & Tech X)',
-    status: 'EVIDENCE INSUFFICIENT',
-    verdictKey: 'UNVERIFIED',
-    claimId: 'sv-2026-105',
-    timestamp: '5 hours ago',
-    alertMessage: 'No clinical peer review or ICMR registered trial published yet. Labeled UNVERIFIED under our evidence standards.',
-    badgeColor: 'border-slate-500/40 text-slate-400 bg-slate-900/60'
   },
   {
     id: 'va-04',
@@ -453,7 +663,7 @@ export const VIRAL_ALERTS = [
     status: 'DOCUMENTED HOAX',
     verdictKey: 'FALSE',
     claimId: 'sv-2026-044',
-    timestamp: '1 day ago',
+    timestamp: '3 days ago',
     alertMessage: 'Evergreen myth since 2008. UNESCO does not rank or award anthems.',
     badgeColor: 'border-rose-500/40 text-rose-400 bg-rose-950/40'
   }
@@ -461,7 +671,22 @@ export const VIRAL_ALERTS = [
 
 export const SAMPLE_INPUTS = [
   {
-    label: '“IIT Baba has died in ashram” (Rumor)',
+    label: '“Tiger Shroff shot in Juhu attack”',
+    text: 'BREAKING: Bollywood actor Tiger Shroff was shot in the chest and is critically injured in hospital ICU after bike assailants opened fire in Juhu Mumbai. People are saying this might be a PR stunt for his movie.',
+    type: 'whatsapp'
+  },
+  {
+    label: '“Abhijit Dipke (CJP) died in Delhi”',
+    text: 'A newspaper clipping says Cockroach Janta Party founder Abhijeet Dipke has died during Delhi protests following clashes with police. RIP to the youth leader.',
+    type: 'whatsapp'
+  },
+  {
+    label: '“CJP donation video QR code”',
+    text: 'Watch this viral video of Abhijeet Dipke asking everyone to scan this QR code to donate ₹500 immediately for Cockroach Janta Party protest fund.',
+    type: 'whatsapp'
+  },
+  {
+    label: '“IIT Baba has died in ashram”',
     text: 'BREAKING NEWS: IIT Baba, the famous spiritual engineer guru from Varanasi, has passed away in his ashram today at age 52. Devotees are gathering in large numbers. Share with everyone.',
     type: 'whatsapp'
   },
@@ -474,15 +699,5 @@ export const SAMPLE_INPUTS = [
     label: 'PM Free Student Recharge Scam',
     text: 'Govt is giving ₹2,500 free recharge to all Indian students under PM Yuva Digital Yojana. Register your number before midnight here: http://pm-digital-recharge-2026.xyz',
     type: 'sms'
-  },
-  {
-    label: 'AI Hospital Triage 40% Speedup',
-    text: 'Hospital in Bengaluru deploys revolutionary AI triage system that cuts emergency wait time by 40% across all emergency departments.',
-    type: 'news'
-  },
-  {
-    label: 'ISRO SCE-200 Engine Test',
-    text: 'https://isro.gov.in/press-release/sce-200-successful-hot-test-mahendragiri',
-    type: 'url'
   }
 ];

@@ -3,46 +3,45 @@ import {
   Search, 
   Filter, 
   BookOpen, 
-  Calendar, 
-  ExternalLink, 
-  ShieldCheck, 
   History, 
   Share2, 
   CheckCircle2, 
   XCircle, 
   AlertTriangle, 
   HelpCircle, 
-  Clock,
-  ArrowUpRight,
-  Tag
+  Clock, 
+  ArrowUpRight 
 } from 'lucide-react';
 import { VERDICTS, MOCK_CLAIMS } from '../data/mockClaims';
 
-export default function PublicLibrary({ onSelectClaim, onOpenTruthCard }) {
+export default function PublicLibrary({ claims = MOCK_CLAIMS, onSelectClaim, onOpenTruthCard }) {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedVerdict, setSelectedVerdict] = useState('ALL');
   const [selectedCategory, setSelectedCategory] = useState('ALL');
   const [activeRevisionClaim, setActiveRevisionClaim] = useState(null);
 
+  const activeClaims = claims || MOCK_CLAIMS;
+
   const categories = useMemo(() => {
-    const cats = new Set(MOCK_CLAIMS.map(c => c.category));
+    const cats = new Set(activeClaims.map(c => c.category));
     return ['ALL', ...Array.from(cats)];
-  }, []);
+  }, [activeClaims]);
 
   const filteredClaims = useMemo(() => {
-    return MOCK_CLAIMS.filter(claim => {
+    return activeClaims.filter(claim => {
       const matchesSearch = 
         claim.claimText.toLowerCase().includes(searchTerm.toLowerCase()) ||
         claim.canonicalSubject.toLowerCase().includes(searchTerm.toLowerCase()) ||
         claim.investigationSummary.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        claim.id.toLowerCase().includes(searchTerm.toLowerCase());
+        claim.id.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        (claim.tags && claim.tags.some(t => t.toLowerCase().includes(searchTerm.toLowerCase())));
       
       const matchesVerdict = selectedVerdict === 'ALL' || claim.verdict === selectedVerdict;
       const matchesCat = selectedCategory === 'ALL' || claim.category === selectedCategory;
 
       return matchesSearch && matchesVerdict && matchesCat;
     });
-  }, [searchTerm, selectedVerdict, selectedCategory]);
+  }, [activeClaims, searchTerm, selectedVerdict, selectedCategory]);
 
   const getVerdict = (v) => VERDICTS[v] || VERDICTS.UNVERIFIED;
 
@@ -67,7 +66,7 @@ export default function PublicLibrary({ onSelectClaim, onOpenTruthCard }) {
 
         <div className="flex items-center gap-2 text-xs font-mono text-slate-400">
           <span className="px-3 py-1.5 rounded-xl bg-slate-900 border border-slate-800">
-            Showing <strong className="text-[#F5D061]">{filteredClaims.length}</strong> of {MOCK_CLAIMS.length} Investigations
+            Showing <strong className="text-[#F5D061]">{filteredClaims.length}</strong> of {activeClaims.length} Investigations
           </span>
         </div>
       </div>

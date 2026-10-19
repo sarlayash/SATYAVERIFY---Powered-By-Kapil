@@ -10,18 +10,13 @@ import {
   Share2, 
   FileText, 
   Link2, 
-  Upload, 
-  ExternalLink, 
   ShieldCheck, 
   MessageSquare, 
   Calendar, 
-  UserCheck, 
-  ArrowRight,
-  Flame,
-  Check,
-  RefreshCw,
-  Info,
-  Flag
+  ArrowRight, 
+  Check, 
+  RefreshCw, 
+  Info 
 } from 'lucide-react';
 import { VERDICTS, SAMPLE_INPUTS, MOCK_CLAIMS } from '../data/mockClaims';
 import EvidenceDesk from './EvidenceDesk';
@@ -72,33 +67,62 @@ export default function ClaimChecker({
     const timerFinal = setTimeout(() => {
       // Find matching mock claim or synthesize intelligent evidence-first investigation
       const lower = textToAnalyze.toLowerCase();
-      let matched = MOCK_CLAIMS.find(c => 
-        lower.includes('baba') || 
-        lower.includes('dead') || 
-        lower.includes('demise') || 
-        lower.includes('unesco') || 
-        lower.includes('recharge') || 
-        lower.includes('yojana') || 
-        lower.includes('lemon') || 
-        lower.includes('triage') || 
-        lower.includes('isro') || 
-        lower.includes('mask')
-      );
+      let matched = null;
 
-      if (lower.includes('baba') || lower.includes('iit')) {
-        matched = MOCK_CLAIMS[0];
-      } else if (lower.includes('unesco') || lower.includes('anthem')) {
-        matched = MOCK_CLAIMS[1];
-      } else if (lower.includes('recharge') || lower.includes('yojana') || lower.includes('pm')) {
-        matched = MOCK_CLAIMS[2];
-      } else if (lower.includes('lemon') || lower.includes('soda') || lower.includes('cure')) {
-        matched = MOCK_CLAIMS[3];
-      } else if (lower.includes('triage') || lower.includes('hospital') || lower.includes('40%')) {
-        matched = MOCK_CLAIMS[4];
-      } else if (lower.includes('mask') || lower.includes('fine')) {
-        matched = MOCK_CLAIMS[5];
-      } else if (lower.includes('isro') || lower.includes('engine')) {
-        matched = MOCK_CLAIMS[6];
+      // 1. Tiger Shroff attack / Juhu shooting
+      if (lower.includes('tiger') || lower.includes('shroff') || (lower.includes('juhu') && (lower.includes('shoot') || lower.includes('firing') || lower.includes('attack')))) {
+        matched = MOCK_CLAIMS.find(c => c.id === 'sv-2026-120');
+      }
+      // 2. CJP / Abhijeet Dipke death clipping
+      else if ((lower.includes('dipke') || lower.includes('abhijit') || lower.includes('abhijeet') || lower.includes('cjp') || lower.includes('cockroach')) && (lower.includes('dead') || lower.includes('died') || lower.includes('death') || lower.includes('clipping') || lower.includes('newspaper') || lower.includes('kill') || lower.includes('rip'))) {
+        matched = MOCK_CLAIMS.find(c => c.id === 'sv-2026-118');
+      }
+      // 3. CJP / Abhijeet Dipke QR code donation video scam
+      else if ((lower.includes('dipke') || lower.includes('abhijit') || lower.includes('abhijeet') || lower.includes('cjp') || lower.includes('cockroach')) && (lower.includes('qr') || lower.includes('donate') || lower.includes('donation') || lower.includes('money') || lower.includes('upi') || lower.includes('fund') || lower.includes('video'))) {
+        matched = MOCK_CLAIMS.find(c => c.id === 'sv-2026-119');
+      }
+      // 4. General CJP or Dipke mention fallback
+      else if (lower.includes('dipke') || lower.includes('abhijit') || lower.includes('abhijeet') || lower.includes('cjp') || lower.includes('cockroach')) {
+        matched = MOCK_CLAIMS.find(c => c.id === 'sv-2026-118');
+      }
+      // 5. IIT Baba death rumor
+      else if (lower.includes('baba') || lower.includes('iit')) {
+        matched = MOCK_CLAIMS.find(c => c.id === 'sv-2026-081');
+      }
+      // 6. UNESCO National Anthem
+      else if (lower.includes('unesco') || lower.includes('anthem') || lower.includes('jana gana')) {
+        matched = MOCK_CLAIMS.find(c => c.id === 'sv-2026-044');
+      }
+      // 7. PM Yuva free student recharge scam
+      else if (lower.includes('recharge') || lower.includes('yojana') || lower.includes('pm yuva') || lower.includes('voucher')) {
+        matched = MOCK_CLAIMS.find(c => c.id === 'sv-2026-092');
+      }
+      // 8. Hot lemon water and baking soda cure
+      else if (lower.includes('lemon') || lower.includes('baking soda') || (lower.includes('cure') && lower.includes('viral'))) {
+        matched = MOCK_CLAIMS.find(c => c.id === 'sv-2026-033');
+      }
+      // 9. AI hospital triage 40% speedup
+      else if (lower.includes('triage') || (lower.includes('wait') && lower.includes('hospital'))) {
+        matched = MOCK_CLAIMS.find(c => c.id === 'sv-2026-105');
+      }
+      // 10. Mask color fine
+      else if (lower.includes('mask') || lower.includes('bylaw')) {
+        matched = MOCK_CLAIMS.find(c => c.id === 'sv-2026-018');
+      }
+      // 11. ISRO engine test
+      else if (lower.includes('isro') || lower.includes('sce-200') || lower.includes('cryogenic') || lower.includes('mahendragiri')) {
+        matched = MOCK_CLAIMS.find(c => c.id === 'sv-2026-112');
+      }
+      // 12. Smart token keyword match across all claims
+      if (!matched) {
+        matched = MOCK_CLAIMS.find(c => {
+          const words = lower.split(/\s+/).filter(w => w.length > 3);
+          return words.some(w => 
+            c.claimText.toLowerCase().includes(w) || 
+            c.canonicalSubject.toLowerCase().includes(w) || 
+            (c.tags && c.tags.some(t => t.toLowerCase().includes(w)))
+          );
+        });
       }
 
       // If custom user text didn't match existing, build a thoughtful dynamic investigation adhering to our principles
@@ -306,7 +330,10 @@ Read full audit & sources: https://satyaverify.ai/v/${currentClaim.id}`;
 
               {claimInput && (
                 <button
-                  onClick={() => setClaimInput('')}
+                  onClick={() => {
+                    setClaimInput('');
+                    if (onResetSelectedClaim) onResetSelectedClaim();
+                  }}
                   className="absolute top-3 right-3 text-xs text-slate-400 hover:text-white bg-slate-800/80 px-2 py-1 rounded-md"
                 >
                   Clear

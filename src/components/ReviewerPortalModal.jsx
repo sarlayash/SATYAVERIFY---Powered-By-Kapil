@@ -2,19 +2,10 @@ import React, { useState } from 'react';
 import { 
   X, 
   Lock, 
-  ShieldCheck, 
-  UserCheck, 
-  KeyRound, 
-  FileCheck2, 
-  AlertTriangle, 
-  Sparkles,
-  CheckCircle2,
-  Clock,
-  ArrowRight
+  ShieldCheck
 } from 'lucide-react';
 
 export default function ReviewerPortalModal({ onClose, isReviewerMode, setIsReviewerMode }) {
-  const [accessCode, setAccessCode] = useState('');
   const [message, setMessage] = useState(null);
 
   const handleToggle = () => {

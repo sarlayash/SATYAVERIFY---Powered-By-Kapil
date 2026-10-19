@@ -7,11 +7,8 @@ import {
   Copy, 
   Check, 
   ShieldCheck, 
-  ExternalLink,
-  QrCode,
-  Sparkles,
-  Smartphone,
-  Layers
+  QrCode, 
+  Sparkles 
 } from 'lucide-react';
 import * as htmlToImage from 'html-to-image';
 import confetti from 'canvas-confetti';

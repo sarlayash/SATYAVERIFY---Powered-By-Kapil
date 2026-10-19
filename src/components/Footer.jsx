@@ -2,12 +2,8 @@ import React from 'react';
 import { 
   ShieldCheck, 
   Sparkles, 
-  Heart, 
   ExternalLink, 
-  Lock, 
-  BookOpen, 
-  Award,
-  ChevronRight
+  ChevronRight 
 } from 'lucide-react';
 
 export default function Footer({ setActiveTab, onOpenReviewerModal }) {
